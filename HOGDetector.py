@@ -20,4 +20,3 @@ class HOGDetector(IDetector):
         for (x, y, w, h) in self.boxes:
             cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
         cv2.imshow("Detectare Oameni", image)
-        cv2.waitKey(0)
