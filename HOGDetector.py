@@ -5,6 +5,7 @@ class HOGDetector(IDetector):
     name='HOGDetector'
 
     def initiate(self, image):
+        self.image=image
         hog = cv2.HOGDescriptor()
         hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
         boxes, weights = hog.detectMultiScale(image, winStride=(12,12))
@@ -14,7 +15,7 @@ class HOGDetector(IDetector):
     def get_number_of_people(self):
         return len(self.boxes)
 
-    def show_image(self,image):
+    def show_image(self):
         for (x, y, w, h) in self.boxes:
-            cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
-        cv2.imshow("Detectare Oameni", image)
+            cv2.rectangle(self.image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        cv2.imshow("Detectie Oameni Metoda HOG", self.image)

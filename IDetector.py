@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
 
 class IDetector:
-    @abstractmethod
+    @abstractmethod #i use this because i want to maintain a structure for all the classes that implement this "interface"
     def initiate(image):
         pass
     @abstractmethod
-    def show_image(image):
+    def show_image():
         pass
     @abstractmethod
-    def get_number_of_people(image):
+    def get_number_of_people():
         pass

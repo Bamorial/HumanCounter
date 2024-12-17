@@ -2,11 +2,12 @@ import cv2
 from Window import Window
 from Point import Point
 from HOGDetector import HOGDetector
+from YOLODetector import YOLODetector
 import numpy as np
 import imutils
 
 highlight_color=(0,0,255)
-path_to_image='./demo/demo1.jpg'
+path_to_image='./demo/demo6.jpg'
 
 def Crop(image, window: Window):
     cropped_image=np.zeros((window.height,window.width,3), dtype=np.uint8)
@@ -42,11 +43,11 @@ def main():
     cv2.imshow('Image after crop',cropped_image)
     ShowSelection(image, window)
     resized_image=Resize(cropped_image, 1000)
-    detectors=[HOGDetector()]
+    detectors=[HOGDetector(), YOLODetector()]
     for detector in detectors:
         detector.initiate(resized_image)
         number_of_people=detector.get_number_of_people()
-        detector.show_image(resized_image)
+        detector.show_image()
         print(detector.name+' found: '+str(number_of_people)+' people')
     cv2.waitKey(0)
 
