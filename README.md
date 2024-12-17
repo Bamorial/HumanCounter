@@ -12,6 +12,13 @@
    pip install -r requirements.txt
 
 3. Create a folder called YOLO in your root directory 
+   ```bash
+   mkdir YOLO
 
-4. Download the yolov3.cfg and yolov3.weights from: and add them to your YOLO folder 
+4. Download:
+    -yolov3.cfg from : https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg
+    -yolov3.weights from: https://pjreddie.com/media/files/yolov3.weights
+
+    Add them to your YOLO folder 
+
 
