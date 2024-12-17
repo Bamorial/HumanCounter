@@ -7,11 +7,9 @@ class HOGDetector(IDetector):
     def initiate(self, image):
         hog = cv2.HOGDescriptor()
         hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
-        boxes, weights = hog.detectMultiScale(image, winStride=(8, 8), padding=(8, 8), scale=1.05)
+        boxes, weights = hog.detectMultiScale(image, winStride=(12,12))
         self.boxes=boxes
         self.weights=weights
-
-
 
     def get_number_of_people(self):
         return len(self.boxes)
