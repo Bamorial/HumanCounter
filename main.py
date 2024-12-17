@@ -6,17 +6,16 @@ from YOLODetector import YOLODetector
 import numpy as np
 from utils import Crop, Resize, ShowSelection
 
-path_to_image='./demo/demo3.jpg'
+path_to_image='./demo/demo1.jpg'
 
 
 def main():
     image=cv2.imread(path_to_image)
     window=Window(
-        corner=Point(600,0), 
-        width=1000, 
-        height=1000)
+        corner=Point(0,0), 
+        width=500, 
+        height=500)
     cropped_image= Crop(image, window) 
-    cv2.imshow('Image after crop',cropped_image)
     ShowSelection(image, window)
     resized_image=Resize(cropped_image, 1000)
     detectors=[HOGDetector(), YOLODetector()]

@@ -1,12 +1,14 @@
 from IDetector import IDetector
 import numpy as np
 import cv2
+import copy
 
 class YOLODetector(IDetector):
     name="YOLODetector"
     __config_path='./YOLO/yolov3.cfg'
     __weights_path='./YOLO/yolov3.weights'
     __labels_path="./coco.names"
+    color=(0,0,255)
 
     def initiate(self, image):
         self.image=image
@@ -31,10 +33,9 @@ class YOLODetector(IDetector):
                 scores = detection[5:]
                 class_id = np.argmax(scores)
                 confidence = scores[class_id]
-                if confidence > 0.5 and self.classes[class_id] == "person":  # Detect "person"
+                if confidence > 0.5 and self.classes[class_id] == "person": 
                     box = detection[0:4] * np.array([w, h, w, h])
                     (centerX, centerY, width, height) = box.astype("int")
-                    # Calculate top-left corner
                     x = int(centerX - (width / 2))
                     y = int(centerY - (height / 2))
 
@@ -42,13 +43,12 @@ class YOLODetector(IDetector):
                     confidences.append(float(confidence))
                     class_ids.append(class_id)
 
-        # Apply Non-Maxima Suppression to reduce overlapping boxes
         self.indices = cv2.dnn.NMSBoxes(self.boxes, confidences, 0.5, 0.4)
         return len(self.indices)
 
     def show_image(self):
+        work_image=copy.deepcopy(self.image)
         for i in self.indices:
             (x, y, w, h) = self.boxes[i]
-            color = (0, 255, 0)  # Green for humans
-            cv2.rectangle(self.image, (x, y), (x + w, y + h), color, 2)
-        cv2.imshow("Detectie Oameni metoda YOLO", self.image)
+            cv2.rectangle(work_image, (x, y), (x + w, y + h), self.color, 2)
+        cv2.imshow("Detectie Oameni metoda YOLO", work_image)
