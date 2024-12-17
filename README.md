@@ -16,8 +16,8 @@
    mkdir YOLO
 
 4. Download:
-    -yolov3.cfg from : https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg
-    -yolov3.weights from: https://pjreddie.com/media/files/yolov3.weights
+    * yolov3.cfg from : https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg
+    * yolov3.weights from: https://pjreddie.com/media/files/yolov3.weights
 
     Add them to your YOLO folder 
 
