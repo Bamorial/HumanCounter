@@ -8,7 +8,6 @@ from utils import Crop, Resize, ShowSelection
 
 path_to_image='./demo/demo1.jpg'
 
-
 def main():
     image=cv2.imread(path_to_image)
     window=Window(
