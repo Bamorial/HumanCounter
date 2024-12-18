@@ -21,4 +21,8 @@
 
     Add them to your YOLO folder 
 
+## Output
+    * Prints the following message: {{detector.name}} found: n people
+    * Shows the original picture with the selectected window
+    * Shows one window for each detector, using boxes to show the location of the people found
 
