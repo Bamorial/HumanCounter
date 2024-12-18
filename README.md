@@ -1,5 +1,7 @@
 # HumanCounter
 
+## About
+This Python script uses computer vision techniques to detect the number of people in an image using HOG and YOLO-based detectors. 
 
 ## Installation
 
@@ -25,7 +27,7 @@
 
    * main.py - main script to execute the people detection
    * IDetector - the abstract class that declares the methods for all detectors
-   * HOGDetector - implementation of the HOG+ method
+   * HOGDetector - implementation of the HOG+SVM method
    * YOLODetector - implementation for the YOLO method
 
 ## Output
