@@ -21,10 +21,21 @@
 
     Add them to your YOLO folder 
 
+## Overview
+
+   * main.py - main script to execute the people detection
+   * IDetector - the abstract class that declares the methods for all detectors
+   * HOGDetector - implementation of the HOG+ method
+   * YOLODetector - implementation for the YOLO method
+
 ## Output
 
 1. Text
     * Prints the following message: {{detector.name}} found: n people
+   ```bash
+   HOGDetector found: 5 people
+   YOLODetector found: 4 people
+
 2. Images
     * Shows the original picture with the selectected window
     * Shows one window for each detector, using boxes to show the location of the people found
